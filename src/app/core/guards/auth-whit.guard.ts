@@ -10,8 +10,8 @@ export const authWhitGuard: CanActivateFn = (route, state) => {
 
   if(tokenService.getToken()){
     router.navigateByUrl("portafolio");
-    return true;
+    return false;
   }
-  return false;
+  return true;
 
 };

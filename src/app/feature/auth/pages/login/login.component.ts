@@ -7,6 +7,7 @@ import { AuthLoginRequestDto } from '../../../../core/dto/authLoginRequestDto';
 import { AuthService } from '../../../../core/services/auth.service';
 import { lastValueFrom } from 'rxjs';
 import { TokenService } from '../../../../core/services/token.service';
+import { errorsForm } from '../../../../core/enums/errorsForm';
 
 @Component({
   selector: 'app-login',
@@ -32,19 +33,17 @@ export class LoginComponent extends AppBaseComponent{
     let dtoLogin: AuthLoginRequestDto;
 
     if(this.loginForm.valid){
-      alert("todo correcto");     
       let email = this.loginForm.get('email').value;
       let password = this.loginForm.get('password').value;
+
       dtoLogin = {
         email,
         password
       }
 
-      await lastValueFrom(this.authService.signIn(dtoLogin));  
-
-      console.log(this.tokenService.getToken());
-
-      await this.router.navigateByUrl("/portafolio");
+      await lastValueFrom(this.authService.signIn(dtoLogin));
+      
+      await this.router.navigateByUrl("/portal");
 
     }else{
       alert("Formulario incorrecto")
@@ -56,9 +55,9 @@ export class LoginComponent extends AppBaseComponent{
     let message;
     if(this.isTouchedField(this.loginForm, field)){
       if(this.loginForm.get(field).hasError('required')){
-        message = "El campo es requerido";
+        message = errorsForm.REQUIRED;
       }else if(this.loginForm.get(field).hasError('email')){
-        message = "Formato de correo no válido";
+        message = errorsForm.FORMAT_EMAIL;
       }
     }
     return message;

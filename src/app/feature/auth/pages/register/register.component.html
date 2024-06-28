@@ -63,46 +63,90 @@
   
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
-              <form>
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1">Nombres</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Example2" class="form-control" />
-                      <label class="form-label" for="form3Example2">Apellidos</label>
-                    </div>
+              <form role="form" [formGroup]="registerForm" *ngIf="registered == false">
+                <!-- FullName input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input formControlName="fullName" type="text" id="form3Example1" class="form-control" />
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="form3Example1">Nombres y apellidos</label>
+                    <span class="text-danger">{{getErrorsForm('fullName')}}</span>
                   </div>
                 </div>
+
+                <!-- IdCard input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input formControlName="idCard" type="text" id="form3Example2" class="form-control" />
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="form3Example2">Numero de identificación</label>
+                    <span class="text-danger">{{getErrorsForm('idCard')}}</span>
+                  </div>
+                </div>               
   
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3">Correo electrónico</label>
+                  <input formControlName="email" type="email" id="form3Example3" class="form-control" />
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="form3Example3">Correo electrónico</label>
+                    <span class="text-danger">{{getErrorsForm('email')}}</span>
+                  </div>
                 </div>
 
                 <!-- Dirección input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="form3Example5" class="form-control" />
-                    <label class="form-label" for="form3Example5">Dirección</label>
+                <div class="row">
+                  <div class="col-md-8 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input formControlName="address" type="text" id="form3Example5" class="form-control" />
+                      <div class="d-flex justify-content-between">
+                        <label class="form-label" for="form3Example5">Dirección</label>
+                        <span class="text-danger">{{getErrorsForm('address')}}</span>
+                      </div>
+                    </div>
                   </div>
-  
-                <!-- Password input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
-                  <label class="form-label" for="form3Example4">Contraseña</label>
-                </div>  
+                  <!-- Cellhphone input -->
+                  <div class="col-md-4 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input formControlName="cellphone" type="number" id="form3Example6" class="form-control" />
+                      <div class="d-flex justify-content-between">
+                        <label class="form-label" for="form3Example6">Teléfono</label>
+                        <span class="text-danger">{{getErrorsForm('cellphone')}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>   
+                
+                
+                <!-- Password input 
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input type="password" id="form3Example4" class="form-control" />
+                      <div class="d-flex justify-content-between">
+                        <label class="form-label" for="form3Example4">Contraseña</label>
+                        <span class="text-danger">{{getErrorsForm('password')}}</span>
+                      </div>
+                    </div>
+                  </div>
+                   Confirm Password input 
+                  <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <input type="password" id="form3Example4" class="form-control" />
+                      <div class="d-flex justify-content-between">
+                        <label class="form-label" for="form3Example4">Confirmar Contraseña</label>
+                        <span class="text-danger">{{getErrorsForm('password')}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>  -->
+                
                 
   
                 <!-- Submit button -->
-                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
+                <button (click)="signUp();" type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
                   Registrarse
                 </button>
+
+                <p class="mb-5 pb-lg-2" style="color: #393f81;">Ya tienes cuenta? <a style="color: #393f81;" 
+                  routerLink="../inicio-sesion">Inicia sesión aquí</a></p>
   
                 <!-- Register buttons -->
                 <div class="text-center">
@@ -124,6 +168,11 @@
                   </button>
                 </div>
               </form>
+              <div *ngIf="registered == true">
+                <p>Registro exitoso! su contraseña predeterminada es:</p>
+                <h3>{{passwordGenerate}}</h3>
+                <a style="color: #393f81;" routerLink="../inicio-sesion">Inicia sesión aquí</a>
+              </div>
             </div>
           </div>
         </div>
