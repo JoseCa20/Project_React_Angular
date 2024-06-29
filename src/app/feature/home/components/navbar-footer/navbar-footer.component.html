@@ -1,68 +1,68 @@
 <!-- Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid justify-content-between">
-      <!-- Left elements -->
-      <div class="d-flex">
-        <!-- Brand -->
-        <a class="navbar-brand" href="#">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-              class="me-2"
-              height="20"
-              alt="MDB Logo"
-              loading="lazy"
-            />
-            <small>Trenes CundiBoyacenses</small>
-          </a>  
-        
-      </div>
-      <!-- Left elements -->
-  
-      <!-- Center elements -->
-      <ul class="navbar-nav">
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-          <a
-            data-mdb-dropdown-init
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            aria-expanded="false"
-          >
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              <a class="dropdown-item" href="#">Action</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Another action</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <!-- Center elements -->
-  
-      <!-- Right elements -->
-      <ul class="navbar-nav flex-row">
-        <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link d-sm-flex align-items-sm-center" href="#">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
-              class="rounded-circle"
-              height="22"
-              alt="Black and White Portrait of a Man"
-              loading="lazy"
-            />
-            <strong class="d-none d-sm-block ms-1">{{nameClient}}</strong>
-          </a>
-        </li>
-      </ul>
-      <!-- Right elements -->
+  <div class="container-fluid justify-content-between">
+    <!-- Left elements -->
+    <div class="d-flex">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" class="me-2" height="20"
+          alt="MDB Logo" loading="lazy" />
+        <small>Trenes CundiBoyacenses</small>
+      </a>
     </div>
-  </nav>
-  <!-- Navbar -->
+    <!-- Left elements -->
+
+    <!-- Center elements -->
+    <ul class="navbar-nav elements-center">
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+          aria-expanded="false">
+          Envios
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" type="button"
+              (click)="openModal();">Cotizar</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Rastrear</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Nosotros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contactanos</a>
+      </li>
+    </ul>
+    <!-- Center elements -->
+
+    <!-- Right elements -->
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+          <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle" height="22"
+            alt="Black and White Portrait of a Man" loading="lazy" />
+          <strong class="d-none d-sm-block ms-1">{{ nameClient }}</strong>
+        </a>
+      </li>
+    </ul>
+    <!-- Right elements -->
+  </div>
+</nav>
+<!-- Navbar -->
+
+<main id="intro" class="bg-image" style="
+      background-image: url(https://www.elcarrocolombiano.com/wp-content/uploads/2023/12/20231211-BOYACA-EN-TREN-RUTA-TURISTICA-PORTADA.jpg);
+      height: 100vh;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);"></div>
+</main>
+
+<app-modal></app-modal>

@@ -31,7 +31,8 @@ export class RegisterComponent extends AppBaseComponent{
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
       + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]],
-      cellphone: ['', Validators.pattern("^[0-9]*$")]
+      cellphone: ['', Validators.pattern("^[0-9]*$")],
+      password: ['', Validators.required]
     });
   }
 
@@ -41,14 +42,15 @@ export class RegisterComponent extends AppBaseComponent{
 
     let dtoRegister: AuthRegisterRequestDto = this.registerForm.value;
 
-    console.log(dtoRegister);
+    dtoRegister.rol = "CLIENTE";
 
     if(this.registerForm.valid){
-      await lastValueFrom(this.authService.signUp(dtoRegister)).then(resp => {
-        this.passwordGenerate = resp.password;  
-        this.registered = true;
-        console.log("salí")
-      })  
+      await lastValueFrom(this.authService.signUp(dtoRegister))
+        //this.passwordGenerate = resp.password;  
+        //this.registered = true;
+      await this.router.navigateByUrl("/autenticacion/inicio-sesion");
+      console.log("salí")
+      
     }else{
       console.log(this.getAllErrors(this.registerForm));
     }
@@ -59,7 +61,7 @@ export class RegisterComponent extends AppBaseComponent{
 
     let message;
 
-    const required: Array<string> = ["fullName", "idCard", "address", "email", "cellphone"];
+    const required: Array<string> = ["fullName", "idCard", "address", "email", "cellphone", "password"];
     const formatEmail: Array<string> = ["email"];
     const onlyNumber: Array<string> = ["idCard", "cellphone"];
 

@@ -10,4 +10,6 @@ export interface AuthRegisterRequestDto {
 
     cellphone: string;
 
+    rol: string;
+
 }

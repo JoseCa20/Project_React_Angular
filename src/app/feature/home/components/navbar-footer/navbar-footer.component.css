@@ -2,3 +2,17 @@
     background-color: #A7FFEB;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.elements-center{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}

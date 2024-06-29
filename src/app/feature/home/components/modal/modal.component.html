@@ -1,0 +1,59 @@
+<!-- Modal -->
+<div id="exampleModal" class="modal " tabindex="-1" role="dialog">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content ">
+        <div class="modal-header justify-content-center">
+          <h5 class="modal-title ">Cotiza tu envío</h5>          
+        </div>
+        <div class="modal-body">
+          <form>
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+              <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                  <input type="text" id="form3Example1" class="form-control" />
+                  <label class="form-label" for="form3Example1">Ciudad origen</label>
+                </div>
+              </div>
+              <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                  <input type="text" id="form3Example2" class="form-control" />
+                  <label class="form-label" for="form3Example2">Ciudad destino</label>
+                </div>
+              </div>
+            </div> 
+            <div class="row mb-4 ">
+              <div class="col d-flex align-items-center">
+                <div data-mdb-input-init class="form-outline">
+                  <h6>Dimensiones:</h6>
+                </div>
+              </div>
+              <div class="col-2">
+                <div data-mdb-input-init class="form-outline text-center">
+                  <input type="text" id="form3Example1" class="form-control" />
+                  <label class="form-label" for="form3Example1">Largo</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div data-mdb-input-init class="form-outline text-center">
+                  <input type="text" id="form3Example2" class="form-control" />
+                  <label class="form-label" for="form3Example2">Alto</label>
+                </div>
+              </div>
+              <div class="col-2">
+                <div data-mdb-input-init class="form-outline text-center">
+                  <input type="text" id="form3Example2" class="form-control" />
+                  <label class="form-label" for="form3Example2">Ancho</label>
+                </div>
+              </div>
+            </div> 
+          </form>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <h5 >$15.000</h5>
+          <button type="button" class="btn btn-primary">Confirmar</button>
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
